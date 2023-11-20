@@ -1,0 +1,200 @@
+<div style="height: 100%; direction: rtl;overflow: hidden; " class="d-flex flex-row ">
+  <div class="col document-list-container d-flex flex-column">
+    <!--    NAV-BAR     -->
+    <div class="main-title-nav d-flex flex-row justify-content-between">
+      <div>فهرست اسناد</div>
+      <div>بازگشت ></div>
+    </div>
+
+    <!--    MAIN-CONTENT     -->
+    <div class="d-flex flex-column container-main-content">
+      <!--     ALERT CONTAINER      -->
+      <div class="alert">
+        کاربر گرامی! توجه داشته باشید، در این قسمت فقط اسناد ثبت شده پس از تاریخ 1392/6/25 نمایش داده می‌شود.
+      </div>
+
+
+      <div class="d-flex flex-row justify-content-between mt-4">
+
+        <!--     FILTERS CONTAINER      -->
+        <div class="col-lg-2 filters-container d-flex flex-column">
+
+          <!--     FILTER TITLE      -->
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <div style="color: #414141; font-weight: 700; font-size: 20px">فیلترها</div>
+            <div style="color: #35BEFF; font-weight: 700; font-size: 15px">حذف فیلتر</div>
+          </div>
+
+          <!--     SWITCH CONTAINER      -->
+          <div class="switch-container">
+            <div class="d-flex flex-row align-items-center">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <div style="margin-right: 10px; color: #414141; font-size: 17px">تائید نهایی شده</div>
+            </div>
+
+            <div style="margin-top: 30px" class="d-flex flex-row align-items-center">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <div style="margin-right: 10px; color: #414141; font-size: 17px">نیاز به اقدام</div>
+            </div>
+          </div>
+
+          <hr style="border: #757575 dashed 1px">
+
+          <!--     YEAR CONTAINER      -->
+          <div>
+            <div style="margin-bottom: 15px" class="filter-title">سال</div>
+            <input type="number" placeholder="از" class="year-input">
+            <input type="number" placeholder="تا" class="year-input">
+          </div>
+
+          <hr style="border: #757575 dashed 1px">
+
+          <!--     RADIO BUTTON CONTAINER      -->
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="buyAndSell" name="fav_language" value="1">
+              <label class="radio-button-label" for="buyAndSell">خرید و فروش</label>
+            </div>
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="rent" name="fav_language" value="2">
+              <label class="radio-button-label" for="rent">رهن و اجاره</label>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="powerOfAttorney" name="fav_language" value="3">
+              <label class="radio-button-label" for="powerOfAttorney">وکالتنامه</label>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="peace" name="fav_language" value="4">
+              <label class="radio-button-label" for="peace">صلح</label>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="undertaking" name="fav_language" value="4">
+              <label class="radio-button-label" for="undertaking">تعهدنامه</label>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="consent" name="fav_language" value="5">
+              <label class="radio-button-label" for="consent">رضایت‌نامه</label>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-3">
+              <input class="radio-button-style" type="radio" id="other" name="fav_language" value="5">
+              <label class="radio-button-label" for="other">سایر</label>
+            </div>
+          </div>
+        </div>
+
+        <!--     SEARCH BAR & DATA CONTAINER      -->
+        <div class="col searchbar-data-container">
+          <!--    SEARCH BAR AND SORT ICONS     <-->
+          <div class="d-flex flex-row align-items-center justify-content-between">
+
+            <input #searchInput (input)="onSearchChange(searchInput.value.toString())"
+                    class="searchbar-container" placeholder="جستجو" >
+
+            <div class="d-flex flex-row align-items-center justify-content-between">
+              <img style="margin-inline-end: 10px" class="sort-icon" src="assets/icons/menu.png">
+              <img class="sort-icon" src="assets/icons/square-group.png">
+            </div>
+          </div>
+
+          <!--    DATA CONTAINER      -->
+          <div  class="data-container">
+            <div class="timeline">
+
+              <div *ngFor="let item of documentList | search: search" (click)="changeShowStatus(item)" >
+               <div class="timeline-item" id="item1">
+                 <div style="z-index: 90;" class="timeline-content">
+
+                   <!--         TITLE LINE          -->
+                   <div style="cursor: pointer" class="d-flex flex-row align-items-center">
+                     <div style="border-radius: 50%; width: 55px;height: 55px; background: #CDE0FC; text-align: center; z-index: 100; margin-inline-start: -45px" class="d-flex flex-column justify-content-center align-items-center">
+                       <mat-icon *ngIf="item.icon == 'home' " style="color: #64B2F4" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                       <mat-icon *ngIf="item.icon == 'car' " style="color: #64B2F4" aria-hidden="false" aria-label="Example home icon" fontIcon="directions_car"></mat-icon>
+                       <mat-icon *ngIf="item.icon == 'document' " style="color: #64B2F4" aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon>
+                     </div>
+                     <div style="margin-inline-start: 40px; font-weight: 400; font-size: 20px; color: #414141!important;">{{item.documentType + ' - '}} </div>
+                     <div style="font-weight: normal; font-size: 20px; color: #2196F3">{{item.location.toString()}}</div>
+                     <div *ngIf="item.show" class="expand-collapse" onclick="toggleTimelineItem('item1-content')"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                     <div *ngIf="!item.show" class="expand-collapse" onclick="toggleTimelineItem('item1-content')"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                   </div>
+
+                   <!--        SHORT DESCRIPTION CONTAINER          -->
+                   <div  *ngIf="!item.show">
+                     <div class="d-flex flex-row align-items-center line-content-on-hide">
+                       <div style="color: #F2AC00; font-weight: bold; font-size: 13px; margin-inline-end: 15px;">{{item.createDate}}</div>
+                       <div style="color: #939393; font-weight: 600; font-size: 13px; margin-inline-end: 15px;">{{item.documentIdType + ': ' }} <span style="font-weight: 600" >{{item.documentId.toString()}}</span></div>
+                     </div>
+                   </div>
+
+                   <!--         DESCRIPTION CONTAINER          -->
+                   <div *ngIf="!item.show" class="item-content d-flex flex-column">
+                     <div [@fadeInOut]="item.show ? 'show' : 'hide'">
+
+                       <div class="d-flex flex-row align-items-center">
+                         <div style="color: #F2AC00; font-weight: bold; font-size: 13px; margin-inline-end: 15px;">{{item.createDate}}</div>
+                         <div class="data-description-button">جزئیات</div>
+                         <div class="data-description-button">دانلود سند</div>
+                         <div class="data-description-button">تبادل پیام با دفترخانه</div>
+                       </div>
+
+                       <div style="margin-top: 15px">
+                         {{item.description}}
+                       </div>
+                       <div style="margin-top: 20px" class="d-flex flex-row align-items-center justify-content-between">
+                         <div>{{item.documentIdType + ': ' }} <span style="font-weight: bold">{{item.documentId.toString()}}</span></div>
+                         <div class="d-flex flex-row align-items-center">
+                           <div class="d-flex flex-column align-items-center justify-content-center" style="margin-inline-end: 5px;width:25px; height: 25px; color: white; padding: 5px; border-radius: 50%; background: #05E300; text-align: center;">
+                             <mat-icon style="font-size: 18px;">done</mat-icon></div>
+                           <div>وضعیت سند: </div>
+                           <div>{{item.status}}</div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+              <!-- Repeat for other tasks -->
+            </div>
+          </div>
+          <div class="d-flex flex-row align-items-center justify-content-center mt-3">
+            <div style="color: #414141; margin-inline-end: 20px">
+              تعداد در هر صفحه
+            </div>
+            <div>
+              <select style="background:white; border-radius: 5px; border: 1px solid #D2D2D2; width: 80px;height: 35px " name="numbers" id="numbers">
+                <option value="10">۱۰</option>
+                <option value="20">۲۰</option>
+                <option value="50">۳۰</option>
+              </select>
+            </div>
+            <div style="color: #414141; margin-inline-start: 50px; margin-inline-end: 10px">
+              ۱۰-۱ از  ۲۷
+            </div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <mat-icon>keyboard_arrow_left</mat-icon>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div style="height:100%; width: 100px" class=" d-flex flex-column flex-column align-items-center justify-content-end">
+    <img class="support-icon" src="assets/icons/support.png">
+  </div>
+</div>
+
+
