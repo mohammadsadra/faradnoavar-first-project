@@ -30,10 +30,12 @@ export class AppComponent{
       "createDate": "2 مهر 1402",
       "documentId": "1402102154",
       "documentIdType": "شماره پیگیری",
-      "status": " تائید نهایی",
+      "status": "در حال انجام",
       "description": "شما ماشین را از علی علوی در دفترخانه 741 تهران خریده\u200Cاید.",
       "icon": "car",
-      "show": false
+      "show": false,
+      "people": "3",
+      "statusTag": "working"
     },
     {
       "documentType": "سند خرید و فروش ملک",
@@ -44,7 +46,9 @@ export class AppComponent{
       "status": " تائید نهایی",
       "description": "شما ملک با پلاک اصلی 11/420 را از مجید مجیدی در دفترخانه 941 تهران خریده\u200Cاید.",
       "icon": "home",
-      "show": false
+      "show": false,
+      "people": "1",
+      "statusTag": "done"
     },
      {
       "documentType": " گواهی امضاء",
@@ -55,7 +59,9 @@ export class AppComponent{
       "status": " تائید نهایی",
       "description": "مورد تایید است.",
       "icon": "document",
-       "show": false
+       "show": false,
+       "people": "4",
+       "statusTag": "done"
     },
      {
       "documentType": "وکالتنامه",
@@ -66,7 +72,9 @@ export class AppComponent{
       "status": " تائید نهایی",
       "description": "شما ملک با پلاک اصلی 11/420 را از مجید مجیدی در دفترخانه 941 تهران خریده\u200Cاید.",
       "icon": "car",
-       "show": false
+       "show": false,
+       "people": "2",
+       "statusTag": "done"
     },
      {
       "documentType": " گواهی امضاء",
@@ -77,7 +85,9 @@ export class AppComponent{
       "status": " تائید نهایی",
       "description": "مورد تایید است.",
       "icon": "document",
-       "show": false
+       "show": false,
+       "people": "0",
+       "statusTag": "done"
     },
      {
       "documentType": "رهن و اجاره",
@@ -88,7 +98,9 @@ export class AppComponent{
       "status": " تائید نهایی",
       "description": "شما ملک با پلاک اصلی 11/420 را از مجید مجیدی در دفترخانه 941 تهران خریده\u200Cاید.",
       "icon": "home",
-       "show": false
+       "show": false,
+       "people": "2",
+       "statusTag": "done"
     }
   ];
 

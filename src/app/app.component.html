@@ -123,10 +123,24 @@
                         <mat-icon *ngIf="item.icon == 'car' " style="color: #64B2F4" aria-hidden="false" aria-label="Example home icon" fontIcon="directions_car"></mat-icon>
                         <mat-icon *ngIf="item.icon == 'document' " style="color: #64B2F4" aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt"></mat-icon>
                       </div>
-                      <div style="margin-inline-start: 40px; font-weight: 400; font-size: 20px; color: #414141!important;">{{item.documentType + ' - '}} </div>
-                      <div style="font-weight: normal; font-size: 20px; color: #2196F3">{{item.location.toString()}}</div>
+                      <div [class.blink]= "item.statusTag == 'working'" style="margin-inline-start: 40px; font-weight: 400; font-size: 20px; color: #414141!important;">{{item.documentType + ' - '}} </div>
+                      <div [class.blink]= "item.statusTag == 'working'" style="font-weight: normal; font-size: 20px; color: #2196F3">{{item.location.toString()}}</div>
                       <div *ngIf="item.show" class="expand-collapse" onclick="toggleTimelineItem('item1-content')"><mat-icon>keyboard_arrow_up</mat-icon></div>
                       <div *ngIf="!item.show" class="expand-collapse" onclick="toggleTimelineItem('item1-content')"><mat-icon>keyboard_arrow_down</mat-icon></div>
+
+                      <ul *ngIf="item.statusTag == 'working'"  class="timeline-horizontal">
+                        <li>
+                          <div>
+                            <p style="color: #414141">ارسال به دفترخانه</p>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <p style="color: #118DFF; font-weight: bold">پذیرش درخواست</p>
+                          </div>
+                        </li>
+
+                      </ul>
                     </div>
 
                     <!--        SHORT DESCRIPTION CONTAINER          -->
@@ -134,6 +148,10 @@
                       <div class="d-flex flex-row align-items-center line-content-on-hide">
                         <div style="color: #F2AC00; font-weight: bold; font-size: 13px; margin-inline-end: 15px;">{{item.createDate}}</div>
                         <div style="color: #939393; font-weight: 600; font-size: 13px; margin-inline-end: 15px;">{{item.documentIdType + ': ' }} <span style="font-weight: 600" >{{item.documentId.toString()}}</span></div>
+                        <img *ngIf="item.people >= 1" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid" src="assets/images/1.png">
+                        <img *ngIf="item.people >= 2" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/2.png">
+                        <img *ngIf="item.people >= 3" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/3.png">
+                        <img *ngIf="item.people >= 4" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/4.png">
                       </div>
                     </div>
 
@@ -148,8 +166,14 @@
                           <div class="data-description-button">تبادل پیام با دفترخانه</div>
                         </div>
 
-                        <div style="margin-top: 15px">
-                          {{item.description}}
+                        <div class="d-flex flex-row align-items-center mt-2">
+                          <div>
+                            {{item.description}}
+                          </div>
+                          <img *ngIf="item.people >= 1" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: 10px" src="assets/images/1.png">
+                          <img *ngIf="item.people >= 2" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/2.png">
+                          <img *ngIf="item.people >= 3" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/3.png">
+                          <img *ngIf="item.people >= 4" style="border-radius: 50%;width: 30px; border: 1.5px #939393F0 solid; margin-inline-start: -10px" src="assets/images/4.png">
                         </div>
                         <div style="margin-top: 20px" class="d-flex flex-row align-items-center justify-content-between">
                           <div>{{item.documentIdType + ': ' }} <span style="font-weight: bold">{{item.documentId.toString()}}</span></div>
