@@ -30,7 +30,7 @@
           <div class="switch-container">
             <div class="d-flex flex-row align-items-center">
               <label class="switch">
-                <input type="checkbox">
+                <input #doneCheckbox type="checkbox" (change)="filterList('done')" >
                 <span class="slider round"></span>
               </label>
               <div style="margin-right: 10px; color: #414141; font-size: 17px">تائید نهایی شده</div>
@@ -38,7 +38,7 @@
 
             <div style="margin-top: 30px" class="d-flex flex-row align-items-center">
               <label class="switch">
-                <input type="checkbox">
+                <input #workingSwitch type="checkbox" (change)="filterList('working')">
                 <span class="slider round"></span>
               </label>
               <div style="margin-right: 10px; color: #414141; font-size: 17px">نیاز به اقدام</div>
@@ -112,7 +112,7 @@
           <div  class="data-container">
             <div class="timeline">
 
-              <div *ngFor="let item of documentList | search: search" (click)="changeShowStatus(item)" >
+              <div *ngFor="let item of tempList | search: search;" (click)="changeShowStatus(item)" >
                 <div class="timeline-item" id="item1">
                   <div style="z-index: 90;" class="timeline-content">
 
